@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { hero } from '../../content/caseStudy'
+import { GlassCard } from '../ui/GlassCard'
 
 export function Hero() {
   const reduced = useReducedMotion()
@@ -11,15 +12,20 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-          {hero.eyebrow}
-        </p>
-        <h1 className="mb-5 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-display text-transparent">
-          {hero.title}
-        </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
-          {hero.subtitle}
-        </p>
+        <GlassCard className="relative overflow-hidden border-accent/15 bg-gradient-to-br from-white/[0.07] to-white/[0.03] p-6 md:p-8">
+          <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent/5 blur-3xl" aria-hidden />
+          <div className="relative z-[1]">
+            <p className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              {hero.eyebrow}
+            </p>
+            <h1 className="mb-5 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-display text-transparent">
+              {hero.title}
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
+              {hero.subtitle}
+            </p>
+          </div>
+        </GlassCard>
       </motion.div>
 
       <ul

@@ -58,7 +58,7 @@ export const hero = {
   eyebrow: 'Product design · Atlassian: Symphony',
   title: 'Work force management',
   subtitle:
-    'Atlassians support skills were trapped in silos. I led the design of a Skills & Team management App that unified data across the ecosystem to power real-time capacity planning, employee training and smart routing. This was not just a UI update; it was a new "System of Work" built to serve the future of Customer Support Services.',
+    'A Skills & Team management App that unified data across the ecosystem to power real-time capacity planning, employee training and smart routing. This was not just a UI update; it was a new "System of Work" built to serve the future of Customer Support Services.',
   meta: [
     { label: 'Role', value: 'Lead Product designer' },
     { label: 'Timeline', value: 'Feb 2026 - Present' },
