@@ -1,0 +1,33 @@
+import { cursorSection } from '../../content/caseStudy'
+import { FadeIn } from '../ui/FadeIn'
+import { GlassCard } from '../ui/GlassCard'
+import { Section } from '../layout/Section'
+
+export function CursorDesign() {
+  return (
+    <Section id={cursorSection.id} labelledBy={`${cursorSection.id}-title`}>
+      <FadeIn>
+        <h2 id={`${cursorSection.id}-title`} className="mb-4 font-display">
+          {cursorSection.title}
+        </h2>
+        <p className="mb-10 max-w-prose text-white/75">{cursorSection.lede}</p>
+      </FadeIn>
+      <ul className="flex flex-col gap-5">
+        {cursorSection.highlights.map((h, i) => (
+          <li key={h.title}>
+            <FadeIn delay={i * 0.06}>
+              <GlassCard className="border-magenta/25 bg-gradient-to-br from-magenta-dim/40 to-transparent p-6 md:p-7">
+                <h3 className="mb-2 text-base font-semibold text-white">
+                  {h.title}
+                </h3>
+                <p className="text-[0.98rem] leading-relaxed text-white/70">
+                  {h.body}
+                </p>
+              </GlassCard>
+            </FadeIn>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )
+}
