@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
-// GitHub Pages project URL: https://<user>.github.io/<repo>/
+// Relative base: works on GitHub Pages project sites (/repo/) without hard-coding the repo name.
 export default defineConfig({
-  base: '/wfm-casestudy/',
+  base: './',
   plugins: [react(), tailwindcss()],
 })

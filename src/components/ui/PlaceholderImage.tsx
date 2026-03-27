@@ -6,6 +6,14 @@ type PlaceholderImageProps = {
   aspectClassName?: string
 }
 
+function resolvePublicSrc(path: string) {
+  if (path.startsWith('/')) {
+    const base = import.meta.env.BASE_URL
+    return `${base}${path.slice(1)}`
+  }
+  return path
+}
+
 export function PlaceholderImage({
   label,
   alt,
@@ -18,7 +26,7 @@ export function PlaceholderImage({
         className={`overflow-hidden rounded-xl border border-white/10 bg-black/20 ${aspectClassName}`}
       >
         <img
-          src={src}
+          src={resolvePublicSrc(src)}
           alt={alt}
           className="h-full w-full object-cover"
           loading="lazy"

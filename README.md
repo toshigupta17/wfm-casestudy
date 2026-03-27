@@ -14,18 +14,28 @@ Build for production:
 ```bash
 npm run build
 npm run preview
-# Open http://localhost:4173/wfm-casestudy/ (base path matches GitHub Pages)
+# Open the URL printed in the terminal (relative base works at any path)
 ```
 
 ## Deploy to GitHub Pages
 
-This repo is configured for **https://toshigupta17.github.io/wfm-casestudy/** (`base` is set in [`vite.config.ts`](vite.config.ts)).
+Live site: **https://toshigupta17.github.io/wfm-casestudy/**
 
-1. Push these files to GitHub (`main`).
-2. In the repo on GitHub: **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions** (not “Deploy from a branch” unless you use only `dist` on `gh-pages`).
-3. The workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds on every push to `main` and publishes `dist/`. Check the **Actions** tab for the run; after it succeeds, the site updates in a minute or two.
+1. Push to GitHub (`main`).
+2. **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions** (the workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
+3. Open the **Actions** tab and confirm the latest **Deploy to GitHub Pages** run is **green**. The first time, you may need to **approve** the `github-pages` environment (Actions will show “Waiting for approval”).
+4. After a successful deploy, wait a minute and reload the site.
 
-If you rename the repository, change `base` in `vite.config.ts` to `/<new-repo-name>/`.
+### Blank page but the tab title shows “Agent-hub”?
+
+That usually means GitHub Pages is serving the **wrong files**: the **repository root** (`main` branch) instead of the **built** site.
+
+- **Wrong:** Source = **Deploy from a branch** → **main** → **/ (root)**. The root [`index.html`](index.html) is the Vite **dev** template (`<script src="/src/main.tsx">`). GitHub Pages does not run Vite, so that script **404s** and React never starts → **blank page**.
+- **Right:** Source = **GitHub Actions**, so the published site is the **`dist/`** output from the workflow (has `./assets/...` bundles).
+
+Fix: switch Pages to **GitHub Actions**, push again, wait for the workflow to finish.
+
+[`vite.config.ts`](vite.config.ts) uses `base: './'` so asset URLs stay correct under `/wfm-casestudy/`. [`public/.nojekyll`](public/.nojekyll) is copied into `dist` so GitHub Pages does not run Jekyll on the build output.
 
 ## Replace placeholder content
 
