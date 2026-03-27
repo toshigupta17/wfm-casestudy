@@ -14,7 +14,18 @@ Build for production:
 ```bash
 npm run build
 npm run preview
+# Open http://localhost:4173/wfm-casestudy/ (base path matches GitHub Pages)
 ```
+
+## Deploy to GitHub Pages
+
+This repo is configured for **https://toshigupta17.github.io/wfm-casestudy/** (`base` is set in [`vite.config.ts`](vite.config.ts)).
+
+1. Push these files to GitHub (`main`).
+2. In the repo on GitHub: **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions** (not “Deploy from a branch” unless you use only `dist` on `gh-pages`).
+3. The workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds on every push to `main` and publishes `dist/`. Check the **Actions** tab for the run; after it succeeds, the site updates in a minute or two.
+
+If you rename the repository, change `base` in `vite.config.ts` to `/<new-repo-name>/`.
 
 ## Replace placeholder content
 
