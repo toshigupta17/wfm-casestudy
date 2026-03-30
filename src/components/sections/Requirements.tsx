@@ -3,6 +3,7 @@ import { FadeIn } from '../ui/FadeIn'
 import { GlassCard } from '../ui/GlassCard'
 import { Section } from '../layout/Section'
 import { ProposedSolutionDiagram } from './ProposedSolutionDiagram'
+import { RequirementsPersonas } from './RequirementsPersonas'
 
 export function Requirements() {
   return (
@@ -13,6 +14,7 @@ export function Requirements() {
         </h2>
         <p className="mb-10 max-w-prose text-white/75">{requirements.lede}</p>
       </FadeIn>
+      <RequirementsPersonas />
       <ProposedSolutionDiagram />
       <ol className="flex flex-col gap-5">
         {requirements.bullets.map((b, i) => (
@@ -29,9 +31,10 @@ export function Requirements() {
                   <h3 className="mb-2 text-base font-semibold text-white">
                     {b.title}
                   </h3>
-                  <p className="text-[0.98rem] leading-relaxed text-white/70">
-                    {b.body}
-                  </p>
+                  <p
+                    className="text-[0.98rem] leading-relaxed text-white/70 [&_b]:font-semibold [&_b]:text-white/85"
+                    dangerouslySetInnerHTML={{ __html: b.body }}
+                  />
                 </div>
               </GlassCard>
             </FadeIn>

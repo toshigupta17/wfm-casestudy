@@ -43,6 +43,13 @@ export type HandoffItem = {
   isPlaceholderLink?: boolean
 }
 
+export type PersonaGoal = {
+  role: string
+  goal: string
+  /** Visual accent for avatar ring and card edge */
+  accent: 'amber' | 'violet' | 'teal'
+}
+
 export const navItems: NavItem[] = [
   { id: 'challenge', label: 'Challenge' },
   { id: 'design-process', label: 'Design process' },
@@ -140,6 +147,8 @@ export const challengeComparison = {
   ],
   futureTitle: 'Unified WFM toolkit',
   futureSubtitle: 'Proposed solution',
+  futureLede:
+    'The idea was to design a centralized Workforce Management (WFM) Toolkit within the existing routing tool, to turn skill management from a manual chore into a strategic advantage.',
   pillars: [
     {
       title: 'Skills management',
@@ -168,11 +177,32 @@ export const requirements = {
   title: 'Requirements and alignment',
   lede:
     'We aligned on a narrow problem statement and measurable outcomes before pixels, so later debates stayed grounded in user and business constraints. We decided to build a centralized Workforce Management Admin Hub within Symphony App, which is our existing Ticket routing tool) designed to turn skill management from a manual chore into a strategic advantage.',
+  personasTitle: 'Users and goals',
+  personas: [
+    {
+      role: 'Admin',
+      accent: 'amber',
+      goal:
+        'Manage team membership and skill configurations so the system reflects who is on each team and how tickets should be routed.',
+    },
+    {
+      role: 'Manager',
+      accent: 'violet',
+      goal:
+        "See the team's skills and proficiency to maintain the right roster, close skill gaps, and route tickets to the best-suited members.",
+    },
+    {
+      role: 'Support engineer',
+      accent: 'teal',
+      goal:
+        'Keep skills and proficiency visible so work matches expertise—and surface where to learn missing skills.',
+    },
+  ] satisfies PersonaGoal[],
   bullets: [
     {
       title: 'Primary jobs-to-be-done',
       body:
-        '[Replace] e.g. Evaluate an agent’s scope, launch it safely, and review runs with enough context to intervene—without leaving the hub.',
+        '<b>Skills Registry</b>: A single source of truth to define and categorize technical competencies.<br /><br /><b>Team management and Allocation</b>: Enabling Admins to map Support Engineers (SEs) to customer interactions based on real-time qualifications and capacity.<br /><br /><b>Capacity &amp; Gap Analysis</b>: Data-driven insights to identify where the team needs upskilling or additional headcount.',
     },
     {
       title: 'Success criteria',
@@ -308,5 +338,5 @@ export const outcomes = {
 
 export const footer = {
   note:
-    'This page is a portfolio artifact. Replace placeholders in src/content/caseStudy.ts and add screenshots to public/images/.',
+    'This page is a portfolio artifact. All content belongs to Atlassian.',
 }

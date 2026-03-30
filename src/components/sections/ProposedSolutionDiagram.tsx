@@ -46,6 +46,9 @@ export function ProposedSolutionDiagram() {
             <h3 className="mt-2 font-display text-lg font-semibold text-white md:text-xl">
               {C.futureTitle}
             </h3>
+            <p className="mt-3 max-w-prose text-sm leading-relaxed text-sky-100/75">
+              {C.futureLede}
+            </p>
           </div>
 
           <div className="relative z-[1] flex flex-1 flex-col gap-3">
