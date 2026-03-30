@@ -8,7 +8,31 @@ const DIAGRAM_NATIVE_W = 1218
 const DIAGRAM_NATIVE_H = 268
 
 const diagramAlt =
-  'Process flow from discovery and audit through an iterative hub (Replit, Figma, Cursor), stakeholder reviews, staging, UAT and launch, with dev integration.'
+  'Process flow from discovery and audit through an iterative hub (Replit, Figma, Cursor), stakeholder reviews, staging, UAT and launch, with dev integration. Current phase is between committing changes to staging and UAT and launch.'
+
+/** Approximate position of the gap between “Commit changes to staging” and “UAT & launch” (native 1218×268 asset). */
+const CURRENT_PHASE_STYLE = {
+  left: '77.5%',
+  top: '34%',
+} as const
+
+function CurrentPhaseMarker() {
+  return (
+    <div
+      className="pointer-events-none absolute z-[1] flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+      style={{ left: CURRENT_PHASE_STYLE.left, top: CURRENT_PHASE_STYLE.top }}
+      aria-hidden
+    >
+      <span className="whitespace-nowrap rounded-md border border-accent/45 bg-[#07080f]/92 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent shadow-[0_8px_28px_rgba(0,0,0,0.55)] md:text-[11px]">
+        Current phase
+      </span>
+      <span className="relative flex h-7 w-7 items-center justify-center">
+        <span className="absolute h-7 w-7 rounded-full border border-accent/35" />
+        <span className="absolute h-3 w-3 rounded-full border-2 border-accent bg-accent/30 shadow-[0_0_14px_rgba(124,240,214,0.65)] motion-safe:animate-pulse" />
+      </span>
+    </div>
+  )
+}
 
 export function DesignProcessDiagram() {
   const [expanded, setExpanded] = useState(false)
@@ -50,18 +74,25 @@ export function DesignProcessDiagram() {
             className="overflow-x-auto rounded-lg border border-white/10 bg-zinc-950/40 shadow-[0_24px_80px_-32px_rgba(0,0,0,0.75)] [-webkit-overflow-scrolling:touch]"
             role="presentation"
           >
-            <img
-              src={processDiagramFrame}
-              alt={diagramAlt}
-              width={DIAGRAM_NATIVE_W}
-              height={DIAGRAM_NATIVE_H}
-              className="block max-w-none rounded-lg contrast-[1.12] brightness-[1.04]"
-              style={{ width: DIAGRAM_NATIVE_W, minWidth: DIAGRAM_NATIVE_W }}
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="relative inline-block">
+              <img
+                src={processDiagramFrame}
+                alt={diagramAlt}
+                width={DIAGRAM_NATIVE_W}
+                height={DIAGRAM_NATIVE_H}
+                className="block max-w-none rounded-lg contrast-[1.12] brightness-[1.04]"
+                style={{ width: DIAGRAM_NATIVE_W, minWidth: DIAGRAM_NATIVE_W }}
+                loading="lazy"
+                decoding="async"
+              />
+              <CurrentPhaseMarker />
+            </div>
           </div>
         </button>
+        <p className="mt-3 text-center text-xs leading-relaxed text-white/50 md:text-sm">
+          <span className="font-medium text-accent">Current focus:</span>{' '}
+          between committing changes to staging and UAT &amp; launch.
+        </p>
         {expanded &&
           createPortal(
             <div
@@ -96,14 +127,16 @@ export function DesignProcessDiagram() {
                   <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
                 </svg>
               </button>
-              <img
-                src={processDiagramFrame}
-                alt={diagramAlt}
-                width={DIAGRAM_NATIVE_W}
-                height={DIAGRAM_NATIVE_H}
-                className="h-auto max-h-[min(92vh,900px)] w-auto max-w-[min(98vw,1218px)] rounded-lg object-contain object-left shadow-[0_24px_80px_-32px_rgba(0,0,0,0.75)] contrast-[1.08] brightness-[1.03]"
-                onClick={(e) => e.stopPropagation()}
-              />
+              <div className="relative inline-block max-w-full" onClick={(e) => e.stopPropagation()}>
+                <img
+                  src={processDiagramFrame}
+                  alt={diagramAlt}
+                  width={DIAGRAM_NATIVE_W}
+                  height={DIAGRAM_NATIVE_H}
+                  className="h-auto max-h-[min(92vh,900px)] w-auto max-w-[min(98vw,1218px)] rounded-lg object-contain object-left shadow-[0_24px_80px_-32px_rgba(0,0,0,0.75)] contrast-[1.08] brightness-[1.03]"
+                />
+                <CurrentPhaseMarker />
+              </div>
             </div>,
             document.body
           )}

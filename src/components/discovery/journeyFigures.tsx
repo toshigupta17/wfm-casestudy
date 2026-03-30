@@ -104,7 +104,7 @@ export function SkillsHeatmapFigure(): ReactElement {
         </div>
       </div>
       <p className="mt-6 shrink-0 text-center text-[10px] leading-relaxed text-white/40 sm:text-xs">
-        Scan rows for coverage; red highlights priority gaps managers act on first.
+        Team manager must be able to scan and identify skill gaps.
       </p>
     </figure>
   )
@@ -217,7 +217,8 @@ export function TeamMembersFigure(): ReactElement {
         </div>
       </div>
       <p className="mt-2 shrink-0 text-center text-[10px] text-white/40 sm:text-xs">
-        Actual vs required levels surface gaps before routing work.
+        Each team member can be proficient in multiple products, segments and
+        skills. But they must meet the required proficiency.
       </p>
     </figure>
   )

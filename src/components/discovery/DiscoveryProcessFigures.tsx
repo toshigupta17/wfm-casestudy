@@ -342,7 +342,7 @@ function SkillMappingFigure() {
         </svg>
       </div>
       <p className="mt-auto shrink-0 px-2 pt-2 text-center text-xs leading-relaxed text-white/45">
-        Full depth path or a direct tie to a root skill; a root can also map back to sibling parents.
+        The root is a skill that can be mapped to multiple segments.
       </p>
     </figure>
   )

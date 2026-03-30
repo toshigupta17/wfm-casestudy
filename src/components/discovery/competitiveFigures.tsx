@@ -47,7 +47,7 @@ export function CompetitiveTeamPageFigure(): ReactElement {
         ))}
       </div>
       <p className="mt-3 shrink-0 text-center text-[10px] leading-relaxed text-white/40 sm:text-xs">
-        Roster and capacity summaries — labels omitted.
+        A team page information architecture on Atlassian Teams app.
       </p>
     </figure>
   )
@@ -97,7 +97,7 @@ export function CompetitivePersonPageFigure(): ReactElement {
         </div>
       </div>
       <p className="mt-2 shrink-0 text-center text-[10px] text-white/40 sm:text-xs">
-        Skill rows as abstract bars — no product or user strings.
+        A person&apos;s profile on Atlassian Talent app.
       </p>
     </figure>
   )

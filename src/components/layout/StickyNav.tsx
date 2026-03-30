@@ -11,7 +11,7 @@ export function StickyNav() {
           href="#top"
           className="font-display text-sm font-semibold tracking-tight text-white/90 underline-offset-4 hover:text-accent hover:underline"
         >
-          Agent-hub
+          Atlassian WFM by Toshi
         </a>
         <ul className="flex max-w-full flex-wrap justify-center gap-x-3 gap-y-2 text-xs font-medium text-white/55 md:justify-end">
           {navItems.map((item) => (
