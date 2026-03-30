@@ -65,8 +65,9 @@ export function RequirementsPersonas() {
         <h3 className="mb-6 font-display text-xl font-semibold text-white md:text-2xl">{personasTitle}</h3>
         <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6" role="list">
           {personas.map((persona, i) => (
-            <li key={persona.role}>
+            <li key={persona.role} className="h-full">
               <motion.div
+                className="h-full"
                 initial={animate ? { opacity: 0, y: 14 } : false}
                 whileInView={animate ? { opacity: 1, y: 0 } : undefined}
                 viewport={{ once: true }}

@@ -6,7 +6,11 @@ import { ChallengeComparison } from './ChallengeComparison'
 
 export function Challenge() {
   return (
-    <Section id={challenge.id} labelledBy={`${challenge.id}-title`}>
+    <Section
+      id={challenge.id}
+      labelledBy={`${challenge.id}-title`}
+      className="!py-6 md:!py-6"
+    >
       <FadeIn>
         <h2 id={`${challenge.id}-title`} className="mb-4 font-display">
           {challenge.title}

@@ -17,7 +17,7 @@ export function Requirements() {
       <RequirementsPersonas />
       <ProposedSolutionDiagram />
       <ol className="flex flex-col gap-5">
-        {requirements.bullets.map((b, i) => (
+        {requirements.bullets.slice(1).map((b, i) => (
           <li key={b.title}>
             <FadeIn delay={i * 0.06}>
               <GlassCard className="flex gap-4 p-6 md:p-7">
@@ -25,10 +25,10 @@ export function Requirements() {
                   className="font-display text-2xl font-bold tabular-nums text-magenta/90"
                   aria-hidden
                 >
-                  {String(i + 1).padStart(2, '0')}
+                  {String(i + 2).padStart(2, '0')}
                 </span>
                 <div>
-                  <h3 className="mb-2 text-base font-semibold text-white">
+                  <h3 className="mb-2 text-xl font-semibold text-white">
                     {b.title}
                   </h3>
                   <p

@@ -5,7 +5,11 @@ import { DesignProcessDiagram } from './DesignProcessDiagram'
 
 export function DesignProcess() {
   return (
-    <Section id={designProcess.id} labelledBy={`${designProcess.id}-title`}>
+    <Section
+      id={designProcess.id}
+      labelledBy={`${designProcess.id}-title`}
+      className="h-fit"
+    >
       <FadeIn>
         <h2 id={`${designProcess.id}-title`} className="mb-4 font-display">
           {designProcess.title}

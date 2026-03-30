@@ -12,7 +12,7 @@ export function Section({ id, children, className = '', labelledBy }: SectionPro
     <section
       id={id}
       aria-labelledby={labelledBy}
-      className={`scroll-mt-28 py-16 md:py-24 ${className}`}
+      className={`scroll-mt-28 py-[60px] ${className}`}
     >
       {children}
     </section>

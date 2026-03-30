@@ -13,14 +13,30 @@ export type MetaChip = {
   value: string
 }
 
+export type HeroScreen = {
+  src: string
+  alt: string
+  label: string
+}
+
 export type BulletItem = {
   title: string
   body: string
 }
 
+export type DiscoveryFigureKind =
+  | 'mapping'
+  | 'taxonomyProficiency'
+  | 'teamMembers'
+  | 'skillsHeatmap'
+  | 'competitiveTeam'
+  | 'competitivePerson'
+
 export type DiscoveryCard = {
   title: string
   body: string
+  /** Optional SVG figures: mapping first, then taxonomy + proficiency beside L5 */
+  figures?: readonly DiscoveryFigureKind[]
 }
 
 export type IterationFrame = {
@@ -71,6 +87,28 @@ export const hero = {
     { label: 'Timeline', value: 'Feb 2026 - Present' },
     { label: 'Tools', value: 'Cursor, Bitbucket, Replit, Figma' },
   ] satisfies MetaChip[],
+  screens: [
+    {
+      src: '/images/hero/team-members.png',
+      alt: 'Symphony team workspace: member list, filters, and sidebar',
+      label: 'Team roster',
+    },
+    {
+      src: '/images/hero/skills-matrix.png',
+      alt: 'Symphony skills matrix: proficiency heatmap across members',
+      label: 'Skills matrix',
+    },
+    {
+      src: '/images/hero/skills-catalog.png',
+      alt: 'Symphony skills catalog: hierarchical taxonomy',
+      label: 'Skills catalog',
+    },
+    {
+      src: '/images/hero/person-profile.png',
+      alt: 'Symphony person profile: segments and proficiency',
+      label: 'Person profile',
+    },
+  ] satisfies HeroScreen[],
 }
 
 export const challenge = {
@@ -101,7 +139,7 @@ export const designProcess = {
   id: 'design-process' as const,
   title: 'Design process',
   lede:
-    'From research and audit through an iterative loop on Replit, Cursor, and Figma, into stakeholder reviews, staging commits, backend integration, and UAT—this is how we shipped.',
+    'From research and audit through an iterative loop on Replit, Cursor, and Figma, into stakeholder reviews, staging commits, backend integration, and UAT—this is how I shipped.',
   discovery: [
     'Understand the requirements, painpoints and use-cases',
     'Audit the existing product and precedence',
@@ -207,13 +245,9 @@ export const requirements = {
     {
       title: 'Success criteria',
       body:
-        '[Replace] e.g. Time-to-first-successful-run, reduction in misconfiguration support tickets, qualitative trust in review flows.',
+        '<b>Reduced "Time to Assign"</b>: the average time a Lead spent manually cross-referencing spreadsheets vs. using the new automated Skill Registry.<br /><br /><b>Ticket-to-Skill Match Rate</b>: The percentage of Jira tickets handled by an engineer with the verified "Expert" or "Proficient" tag for that specific product area.<br /><br /><b>SE Satisfaction </b>:  internal surveys to measure Support Engineer (SE) sentiment regarding task-fit.<br /><br /><b>Skill Growth Visibility</b>: Track the usage of the "Skills Profile" view to see if SEs were actively monitoring their qualifications, indicating a sense of ownership over their career mobility.<br /><br/><b>Deprecation of Skills Matrix G-sheets. </b> <br /><br /><b>100% of CSS teams using WFM for Skills &amp; Segment Management for their team members</b>',
     },
-    {
-      title: 'Non-goals (explicit)',
-      body:
-        '[Replace] e.g. Building a full model playground or replacing your existing ticketing stack—those were out of scope for v1.',
-    },
+  
   ] satisfies BulletItem[],
 }
 
@@ -221,22 +255,25 @@ export const discovery = {
   id: 'discovery' as const,
   title: 'Research and discovery',
   lede:
-    'We kept discovery proportional: lightweight interviews, workflow mapping, and competitive patterns from devtools and observability products.',
+    'I kept discovery proportional: understanding the process, synstem mapping, and competitive patterns from devtools and observability products.',
   cards: [
     {
-      title: 'Operator interviews',
+      title: 'Understanding the process',
       body:
-        '[Replace] Summarize who you spoke with, what broke in their workflow, and the exact phrases they used (those become UI labels).',
+        'I tried to understand how skills are categories and mapped to tasks in the existing system of work. Created .md files to make cursor understand the logic behind mapping and calculation of skills and segments.',
+      figures: ['mapping', 'taxonomyProficiency'],
     },
     {
       title: 'Journey and system map',
       body:
-        'We mapped discover → configure → run → review to expose where anxiety spiked (usually permissions and failure handling).',
+        'Mapped the journey of a Support manager from creating a new team to assigning a ticket to a Support engineer. The most important thing for them is to understand skill gap and availability of the right team members.',
+      figures: ['teamMembers', 'skillsHeatmap'],
     },
     {
-      title: 'Design principles',
+      title: 'Competitive pattens',
       body:
-        'Clarity over cleverness; progressive disclosure for power; always show “why” next to “what” when surfacing agent actions.',
+        'I looked at the competitive patterns from other internal workforce management tools and observability products. The main objective was to understand the team and skills management patterns.',
+      figures: ['competitiveTeam', 'competitivePerson'],
     },
   ] satisfies DiscoveryCard[],
 }

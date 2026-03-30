@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { challengeComparison as C } from '../../content/caseStudy'
+import { challengeComparison as C, requirements } from '../../content/caseStudy'
 import { FadeIn } from '../ui/FadeIn'
 import { GlassCard } from '../ui/GlassCard'
 
@@ -31,10 +31,26 @@ const pillarVariants = ['skills', 'capacity', 'insights'] as const
 export function ProposedSolutionDiagram() {
   const reduced = useReducedMotion()
   const chaosAnimate = !reduced
+  const firstBullet = requirements.bullets[0]
 
   return (
     <FadeIn>
       <div className="mb-12">
+        <GlassCard className="mb-12 flex gap-4 p-6 md:p-7">
+          <span
+            className="font-display text-2xl font-bold tabular-nums text-magenta/90"
+            aria-hidden
+          >
+            01
+          </span>
+          <div>
+            <h3 className="mb-2 text-base font-semibold text-white">{firstBullet.title}</h3>
+            <p
+              className="text-[0.98rem] leading-relaxed text-white/70 [&_b]:font-semibold [&_b]:text-white/85"
+              dangerouslySetInnerHTML={{ __html: firstBullet.body }}
+            />
+          </div>
+        </GlassCard>
         <GlassCard className="relative flex min-h-[420px] flex-col overflow-hidden border-sky-500/20 bg-gradient-to-b from-sky-950/50 to-emerald-950/20 p-5 md:p-6">
           <div className="pointer-events-none absolute -left-10 top-20 h-48 w-48 rounded-full bg-sky-500/15 blur-3xl" aria-hidden />
           <div className="pointer-events-none absolute bottom-10 right-0 h-32 w-32 rounded-full bg-emerald-500/10 blur-3xl" aria-hidden />
