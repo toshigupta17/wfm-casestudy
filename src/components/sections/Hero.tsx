@@ -5,7 +5,6 @@ import {
 } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { hero } from '../../content/caseStudy'
-import { GlassCard } from '../ui/GlassCard'
 
 const easeOut = [0.22, 1, 0.36, 1] as const
 const AUTO_MS = 6500
@@ -81,27 +80,26 @@ export function Hero() {
   return (
     <header id="top" className="mb-12 md:mb-20">
       <motion.div
+        className="relative"
         initial={reduced ? false : { opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: easeOut }}
       >
-        <GlassCard className="relative overflow-hidden border-accent/15 bg-gradient-to-br from-white/[0.07] to-white/[0.03] p-6 md:p-8">
-          <div
-            className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent/5 blur-3xl"
-            aria-hidden
-          />
-          <div className="relative z-[1]">
-            <p className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              {hero.eyebrow}
-            </p>
-            <h1 className="mb-5 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-display text-transparent">
-              {hero.title}
-            </h1>
-            <p className="max-w-2xl text-[17px] leading-relaxed text-white/75">
-              {hero.subtitle}
-            </p>
-          </div>
-        </GlassCard>
+        <div
+          className="pointer-events-none absolute -right-16 -top-12 h-44 w-44 rounded-full bg-accent/[0.06] blur-3xl md:-right-24 md:-top-16 md:h-56 md:w-56"
+          aria-hidden
+        />
+        <div className="relative">
+          <p className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            {hero.eyebrow}
+          </p>
+          <h1 className="mb-5 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-display text-transparent">
+            {hero.title}
+          </h1>
+          <p className="max-w-2xl text-[17px] leading-relaxed text-white/75">
+            {hero.subtitle}
+          </p>
+        </div>
       </motion.div>
 
       <motion.div
