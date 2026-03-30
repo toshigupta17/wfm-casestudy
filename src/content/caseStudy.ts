@@ -320,7 +320,7 @@ export const cursorSection = {
     {
       title: 'Design system coupling',
       body:
-        'We reused primitives (type scale, spacing, buttons) so experiments didn’t fork into one-off CSS—critical when shipping weekly.',
+        'I reused primitives (type scale, spacing, buttons) so experiments didn’t fork into one-off CSS—critical when shipping weekly.',
     },
   ] satisfies CursorHighlight[],
 }

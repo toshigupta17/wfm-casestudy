@@ -75,7 +75,11 @@ export function ProposedSolutionDiagram() {
                 whileInView={chaosAnimate ? { opacity: 1, y: 0 } : undefined}
                 viewport={{ once: true }}
                 transition={{ delay: 0.12 + i * 0.07, duration: 0.5 }}
-                className="rounded-xl border border-sky-400/20 bg-gradient-to-br from-sky-500/15 to-transparent p-4 backdrop-blur-md"
+                className={`rounded-xl border border-sky-400/20 p-4 backdrop-blur-md ${
+                  pillarVariants[i] === 'insights'
+                    ? 'bg-black'
+                    : 'bg-gradient-to-br from-sky-500/15 to-transparent'
+                }`}
               >
                 <div className="flex items-start gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-sky-400/25 bg-sky-500/10">
