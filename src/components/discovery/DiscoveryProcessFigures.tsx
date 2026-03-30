@@ -70,17 +70,17 @@ function SkillTaxonomyWithProficiencyFigure() {
 
   return (
     <figure
-      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-black/20 px-2 py-4 sm:px-4"
+      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-gradient-to-b from-slate-50 to-white px-2 py-4 sm:px-4"
       aria-label="Skill taxonomy L1 through L5 with proficiency scale beside skill"
     >
-      <figcaption className="mb-3 shrink-0 px-2 text-sm font-medium tracking-wide text-white/90">
+      <figcaption className="mb-3 shrink-0 px-2 text-sm font-medium tracking-wide text-slate-800">
         Skill taxonomy (L1–L5) and proficiency
       </figcaption>
       <div className="relative flex min-h-0 flex-1 flex-col overflow-x-auto">
         <svg
           viewBox={`0 0 ${w} ${h}`}
           preserveAspectRatio="xMidYMid meet"
-          className="mx-auto h-full min-h-[200px] w-full max-w-full flex-1 text-white/40 md:max-w-[720px]"
+          className="mx-auto h-full min-h-[200px] w-full max-w-full flex-1 text-slate-400 md:max-w-[720px]"
           role="img"
           aria-hidden
         >
@@ -193,10 +193,10 @@ function SkillMappingFigure() {
 
   return (
     <figure
-      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-black/30 px-2 py-4 sm:px-4"
+      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-slate-50/90 px-2 py-4 sm:px-4"
       aria-label="Mapping logic: hierarchy and direct paths to root skill"
     >
-      <figcaption className="mb-3 shrink-0 px-2 text-sm font-medium tracking-wide text-white/90">
+      <figcaption className="mb-3 shrink-0 px-2 text-sm font-medium tracking-wide text-slate-800">
         Mapping logic
       </figcaption>
       <div className="relative flex min-h-0 flex-1 flex-col overflow-x-auto">
@@ -341,7 +341,7 @@ function SkillMappingFigure() {
           ))}
         </svg>
       </div>
-      <p className="mt-auto shrink-0 px-2 pt-2 text-center text-xs leading-relaxed text-white/45">
+      <p className="mt-auto shrink-0 px-2 pt-2 text-center text-xs leading-relaxed text-slate-600">
         The root is a skill that can be mapped to multiple segments.
       </p>
     </figure>

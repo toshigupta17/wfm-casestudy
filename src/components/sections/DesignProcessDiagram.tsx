@@ -23,12 +23,12 @@ function CurrentPhaseMarker() {
       style={{ left: CURRENT_PHASE_STYLE.left, top: CURRENT_PHASE_STYLE.top }}
       aria-hidden
     >
-      <span className="whitespace-nowrap rounded-md border border-accent/45 bg-[#07080f]/92 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent shadow-[0_8px_28px_rgba(0,0,0,0.55)] md:text-[11px]">
+      <span className="whitespace-nowrap rounded-md border border-teal-200 bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent shadow-md shadow-slate-900/15 md:text-[11px]">
         Current phase
       </span>
       <span className="relative flex h-7 w-7 items-center justify-center">
-        <span className="absolute h-7 w-7 rounded-full border border-accent/35" />
-        <span className="absolute h-3 w-3 rounded-full border-2 border-accent bg-accent/30 shadow-[0_0_14px_rgba(124,240,214,0.65)] motion-safe:animate-pulse" />
+        <span className="absolute h-7 w-7 rounded-full border border-accent/50" />
+        <span className="absolute h-3 w-3 rounded-full border-2 border-accent bg-accent/25 shadow-[0_0_12px_rgba(15,118,110,0.35)] motion-safe:animate-pulse" />
       </span>
     </div>
   )
@@ -71,7 +71,7 @@ export function DesignProcessDiagram() {
           aria-label="Expand process diagram"
         >
           <div
-            className="overflow-x-auto rounded-lg border border-white/10 bg-zinc-950/40 shadow-[0_24px_80px_-32px_rgba(0,0,0,0.75)] [-webkit-overflow-scrolling:touch]"
+            className="overflow-x-auto rounded-lg border border-slate-200/90 bg-white shadow-[0_12px_40px_-16px_rgba(15,23,42,0.12)] [-webkit-overflow-scrolling:touch]"
             role="presentation"
           >
             <div className="relative inline-block">
@@ -80,7 +80,7 @@ export function DesignProcessDiagram() {
                 alt={diagramAlt}
                 width={DIAGRAM_NATIVE_W}
                 height={DIAGRAM_NATIVE_H}
-                className="block max-w-none rounded-lg contrast-[1.12] brightness-[1.04]"
+                className="block max-w-none rounded-lg contrast-[1.06] brightness-[1.02]"
                 style={{ width: DIAGRAM_NATIVE_W, minWidth: DIAGRAM_NATIVE_W }}
                 loading="lazy"
                 decoding="async"
@@ -89,7 +89,7 @@ export function DesignProcessDiagram() {
             </div>
           </div>
         </button>
-        <p className="mt-3 text-center text-xs leading-relaxed text-white/50 md:text-sm">
+        <p className="mt-3 text-center text-xs leading-relaxed text-slate-500 md:text-sm">
           <span className="font-medium text-accent">Current focus:</span>{' '}
           between committing changes to staging and UAT &amp; launch.
         </p>
@@ -100,7 +100,7 @@ export function DesignProcessDiagram() {
               role="dialog"
               aria-modal="true"
               aria-labelledby={`${dialogId}-title`}
-              className="fixed inset-0 z-[200] flex items-center justify-center bg-zinc-950/90 p-4 backdrop-blur-sm"
+              className="fixed inset-0 z-[200] flex items-center justify-center bg-slate-900/55 p-4 backdrop-blur-sm"
               onClick={() => setExpanded(false)}
             >
               <h2 id={`${dialogId}-title`} className="sr-only">
@@ -109,7 +109,7 @@ export function DesignProcessDiagram() {
               <button
                 ref={closeBtnRef}
                 type="button"
-                className="absolute right-4 top-4 z-[201] flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-zinc-900/90 text-white/90 transition hover:bg-white/10"
+                className="absolute right-4 top-4 z-[201] flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-md transition hover:bg-slate-50"
                 onClick={(e) => {
                   e.stopPropagation()
                   setExpanded(false)
@@ -133,7 +133,7 @@ export function DesignProcessDiagram() {
                   alt={diagramAlt}
                   width={DIAGRAM_NATIVE_W}
                   height={DIAGRAM_NATIVE_H}
-                  className="h-auto max-h-[min(92vh,900px)] w-auto max-w-[min(98vw,1218px)] rounded-lg object-contain object-left shadow-[0_24px_80px_-32px_rgba(0,0,0,0.75)] contrast-[1.08] brightness-[1.03]"
+                  className="h-auto max-h-[min(92vh,900px)] w-auto max-w-[min(98vw,1218px)] rounded-lg border border-slate-200/80 bg-white object-contain object-left shadow-2xl shadow-slate-900/20 contrast-[1.05] brightness-[1.02]"
                 />
                 <CurrentPhaseMarker />
               </div>

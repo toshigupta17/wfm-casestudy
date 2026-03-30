@@ -14,7 +14,7 @@ export function DesignProcess() {
         <h2 id={`${designProcess.id}-title`} className="mb-4 font-display">
           {designProcess.title}
         </h2>
-        <p className="mb-10 max-w-prose text-white/75">{designProcess.lede}</p>
+        <p className="mb-10 max-w-prose text-slate-600">{designProcess.lede}</p>
       </FadeIn>
       <DesignProcessDiagram />
     </Section>

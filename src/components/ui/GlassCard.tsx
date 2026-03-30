@@ -14,9 +14,9 @@ export function GlassCard({
   return (
     <Tag
       className={[
-        'rounded-2xl border border-white/10 bg-white/[0.06] shadow-[0_24px_80px_-32px_rgba(0,0,0,0.75)] backdrop-blur-xl',
+        'rounded-2xl border border-slate-200/90 bg-white/80 shadow-[0_8px_40px_-14px_rgba(15,23,42,0.12)] backdrop-blur-xl',
         'transition-transform duration-300 ease-out motion-reduce:transition-none',
-        'hover:-translate-y-0.5 hover:border-white/[0.14] hover:bg-white/[0.09] motion-reduce:hover:translate-y-0',
+        'hover:-translate-y-0.5 hover:border-slate-300/95 hover:bg-white/95 hover:shadow-[0_12px_44px_-14px_rgba(15,23,42,0.14)] motion-reduce:hover:translate-y-0',
         className,
       ]
         .filter(Boolean)

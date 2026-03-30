@@ -5,7 +5,7 @@ function RedactedLine({ className = '' }: { className?: string }) {
   return (
     <span
       className={[
-        'inline-block rounded-sm bg-white/[0.12]',
+        'inline-block rounded-sm bg-slate-200/90',
         className,
       ].join(' ')}
       aria-hidden
@@ -18,23 +18,23 @@ export function CompetitiveTeamPageFigure(): ReactElement {
   const rows = [0, 1, 2, 3]
   return (
     <figure
-      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-black/25 px-3 py-4 sm:px-4"
+      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-slate-50/95 px-3 py-4 sm:px-4"
       aria-label="Redacted team directory pattern from competitive tools"
     >
-      <figcaption className="mb-3 shrink-0 text-sm font-medium tracking-wide text-white/90">
+      <figcaption className="mb-3 shrink-0 text-sm font-medium tracking-wide text-slate-800">
         Team page (pattern)
       </figcaption>
       <div className="flex min-h-0 flex-1 flex-col gap-2">
-        <div className="mb-1 flex items-center justify-between gap-2 border-b border-white/10 pb-2">
+        <div className="mb-1 flex items-center justify-between gap-2 border-b border-slate-200 pb-2">
           <RedactedLine className="h-2.5 w-28" />
           <RedactedLine className="h-6 w-16 rounded-md" />
         </div>
         {rows.map((i) => (
           <div
             key={i}
-            className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.03] px-2 py-2.5"
+            className="flex items-center gap-3 rounded-lg border border-slate-200/80 bg-white px-2 py-2.5 shadow-sm"
           >
-            <div className="h-9 w-9 shrink-0 rounded-full bg-white/[0.1] ring-1 ring-white/10" />
+            <div className="h-9 w-9 shrink-0 rounded-full bg-slate-200 ring-1 ring-slate-300/80" />
             <div className="min-w-0 flex-1 space-y-1.5">
               <RedactedLine className="h-2 w-[45%] max-w-[8rem]" />
               <RedactedLine className="h-1.5 w-[70%] max-w-[12rem]" />
@@ -46,7 +46,7 @@ export function CompetitiveTeamPageFigure(): ReactElement {
           </div>
         ))}
       </div>
-      <p className="mt-3 shrink-0 text-center text-[10px] leading-relaxed text-white/40 sm:text-xs">
+      <p className="mt-3 shrink-0 text-center text-[10px] leading-relaxed text-slate-500 sm:text-xs">
         A team page information architecture on Atlassian Teams app.
       </p>
     </figure>
@@ -58,15 +58,15 @@ export function CompetitivePersonPageFigure(): ReactElement {
   const blocks = [0, 1, 2, 3, 4]
   return (
     <figure
-      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-black/30 px-3 py-4 sm:px-4"
+      className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-100/80 px-3 py-4 sm:px-4"
       aria-label="Redacted person profile with skills from competitive tools"
     >
-      <figcaption className="mb-3 shrink-0 text-sm font-medium tracking-wide text-white/90">
+      <figcaption className="mb-3 shrink-0 text-sm font-medium tracking-wide text-slate-800">
         Person page (pattern)
       </figcaption>
       <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto">
-        <div className="flex gap-3 border-b border-white/10 pb-3">
-          <div className="h-14 w-14 shrink-0 rounded-2xl bg-white/[0.08] ring-1 ring-white/15" />
+        <div className="flex gap-3 border-b border-slate-200 pb-3">
+          <div className="h-14 w-14 shrink-0 rounded-2xl bg-slate-200 ring-1 ring-slate-300/80" />
           <div className="min-w-0 flex-1 space-y-2 pt-1">
             <RedactedLine className="h-3 w-[55%]" />
             <RedactedLine className="h-2 w-[85%]" />
@@ -76,7 +76,7 @@ export function CompetitivePersonPageFigure(): ReactElement {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-[1fr_auto_auto] items-center gap-x-2 gap-y-2 border-b border-white/[0.06] pb-2">
+        <div className="grid grid-cols-[1fr_auto_auto] items-center gap-x-2 gap-y-2 border-b border-slate-200/80 pb-2">
           <RedactedLine className="h-1.5 w-16" />
           <RedactedLine className="mx-auto h-1.5 w-8" />
           <RedactedLine className="mx-auto h-1.5 w-8" />
@@ -85,7 +85,7 @@ export function CompetitivePersonPageFigure(): ReactElement {
           {blocks.map((i) => (
             <div
               key={i}
-              className="grid grid-cols-[1fr_auto_auto] items-center gap-2 rounded-md bg-white/[0.03] px-2 py-2"
+              className="grid grid-cols-[1fr_auto_auto] items-center gap-2 rounded-md bg-white px-2 py-2 shadow-sm ring-1 ring-slate-100"
             >
               <RedactedLine
                 className={['h-2', i % 2 ? 'w-[72%]' : 'w-[58%]'].join(' ')}
@@ -96,7 +96,7 @@ export function CompetitivePersonPageFigure(): ReactElement {
           ))}
         </div>
       </div>
-      <p className="mt-2 shrink-0 text-center text-[10px] text-white/40 sm:text-xs">
+      <p className="mt-2 shrink-0 text-center text-[10px] text-slate-500 sm:text-xs">
         A person&apos;s profile on Atlassian Talent app.
       </p>
     </figure>

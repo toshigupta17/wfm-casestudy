@@ -1,7 +1,6 @@
 /** Decorative separator between page sections — sparkle (AI), person, ticket. */
 export function SectionDivider() {
-  const icon =
-    'h-3 w-3 shrink-0 text-white/[0.32] sm:text-white/[0.28]'
+  const icon = 'h-3 w-3 shrink-0 text-slate-400 sm:text-slate-400'
 
   return (
     <div
@@ -9,7 +8,7 @@ export function SectionDivider() {
       role="presentation"
       aria-hidden
     >
-      <div className="min-h-px min-w-0 flex-1 bg-white/10" aria-hidden />
+      <div className="min-h-px min-w-0 flex-1 bg-slate-300/90" aria-hidden />
       <div className="flex shrink-0 items-center gap-3">
         <svg
           className={icon}
@@ -54,7 +53,7 @@ export function SectionDivider() {
           />
         </svg>
       </div>
-      <div className="min-h-px min-w-0 flex-1 bg-white/10" aria-hidden />
+      <div className="min-h-px min-w-0 flex-1 bg-slate-300/90" aria-hidden />
     </div>
   )
 }

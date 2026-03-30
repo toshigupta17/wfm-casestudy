@@ -93,10 +93,10 @@ export function Hero() {
           <p className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             {hero.eyebrow}
           </p>
-          <h1 className="mb-5 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-display text-transparent">
+          <h1 className="mb-5 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 bg-clip-text font-display text-transparent">
             {hero.title}
           </h1>
-          <p className="max-w-2xl text-[17px] leading-relaxed text-white/75">
+          <p className="max-w-2xl text-[17px] leading-relaxed text-slate-600">
             {hero.subtitle}
           </p>
         </div>
@@ -108,15 +108,15 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: reduced ? 0 : 0.15, duration: 0.65, ease: easeOut }}
       >
-        <p className="mb-4 text-center font-display text-[11px] font-semibold uppercase tracking-[0.28em] text-white/40">
+        <p className="mb-4 text-center font-display text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
           Product UI
         </p>
 
         <div
           className={[
-            'overflow-hidden rounded-2xl border border-white/[0.12]',
-            'bg-[#0a0c11] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.95)]',
-            'ring-1 ring-inset ring-white/[0.06]',
+            'overflow-hidden rounded-2xl border border-slate-200/90',
+            'bg-white shadow-[0_24px_64px_-24px_rgba(15,23,42,0.2)]',
+            'ring-1 ring-inset ring-slate-200/60',
           ].join(' ')}
           onMouseEnter={() => {
             pauseRef.current = true
@@ -129,23 +129,23 @@ export function Hero() {
           aria-label="Symphony interface screens"
         >
           {/* Browser chrome — decorative mock; screen content is real product UI */}
-          <div className="flex h-11 shrink-0 items-center gap-3 border-b border-white/[0.08] bg-white/[0.04] px-3 md:h-12 md:px-4">
+          <div className="flex h-11 shrink-0 items-center gap-3 border-b border-slate-200/90 bg-slate-100/80 px-3 md:h-12 md:px-4">
             <div className="flex gap-1.5" aria-hidden>
               <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/90" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/90" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/90" />
             </div>
-            <div className="min-w-0 flex-1 rounded-md border border-white/[0.06] bg-black/30 px-3 py-1 text-center">
-              <p className="truncate text-[11px] text-white/45 md:text-xs">
-                <span className="text-white/30">symphony · </span>
-                <span className="font-medium text-white/70">{screen.label}</span>
+            <div className="min-w-0 flex-1 rounded-md border border-slate-200/90 bg-white px-3 py-1 text-center shadow-inner shadow-slate-900/5">
+              <p className="truncate text-[11px] text-slate-600 md:text-xs">
+                <span className="text-slate-400">symphony · </span>
+                <span className="font-medium text-slate-800">{screen.label}</span>
               </p>
             </div>
             <div className="flex shrink-0 items-center gap-1">
               <button
                 type="button"
                 onClick={() => go(-1)}
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-white/70 transition-colors hover:border-white/20 hover:bg-white/[0.09] hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
                 aria-label="Previous screen"
               >
                 <Chevron dir="left" />
@@ -153,7 +153,7 @@ export function Hero() {
               <button
                 type="button"
                 onClick={() => go(1)}
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.05] text-white/70 transition-colors hover:border-white/20 hover:bg-white/[0.09] hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
                 aria-label="Next screen"
               >
                 <Chevron dir="right" />
@@ -193,7 +193,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-2 border-t border-white/[0.08] bg-white/[0.03] px-3 py-3">
+          <div className="flex items-center justify-center gap-2 border-t border-slate-200/90 bg-slate-50/90 px-3 py-3">
             {hero.screens.map((s, i) => (
               <button
                 key={s.src}
@@ -205,8 +205,8 @@ export function Hero() {
                 className={[
                   'h-2 rounded-full transition-all duration-300',
                   i === index
-                    ? 'w-7 bg-accent/90'
-                    : 'w-2 bg-white/20 hover:bg-white/35',
+                    ? 'w-7 bg-accent'
+                    : 'w-2 bg-slate-300 hover:bg-slate-400',
                 ].join(' ')}
                 aria-label={`Show ${s.label}`}
                 aria-current={i === index}
@@ -231,10 +231,10 @@ export function Hero() {
               ease: easeOut,
             }}
           >
-            <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm backdrop-blur-md">
-              <span className="text-white/45">{chip.label}</span>
-              <span className="mx-2 text-white/25">·</span>
-              <span className="text-white/85">{chip.value}</span>
+            <div className="rounded-full border border-slate-200/90 bg-white/90 px-4 py-2 text-sm shadow-sm backdrop-blur-md">
+              <span className="text-slate-500">{chip.label}</span>
+              <span className="mx-2 text-slate-300">·</span>
+              <span className="text-slate-800">{chip.value}</span>
             </div>
           </motion.li>
         ))}

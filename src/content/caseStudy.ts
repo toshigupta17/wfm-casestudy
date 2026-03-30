@@ -1,6 +1,6 @@
 /**
  * Replace placeholder copy and image paths with your real Agent-hub project details.
- * Add files under public/images/ and set `src` on iteration frames below.
+ * Iteration representative UI is built in React (`IterationMockups`) — no screenshot required.
  */
 
 export type NavItem = {
@@ -39,12 +39,15 @@ export type DiscoveryCard = {
   figures?: readonly DiscoveryFigureKind[]
 }
 
-export type IterationFrame = {
-  /** Replace with `/images/your-file.png` when ready */
-  imageSrc: string | null
-  imageAlt: string
-  caption: string
+export type IterationScreenCaption = {
+  title: string
   body: string
+}
+
+export type RepresentativeUI = {
+  heading: string
+  intro: string
+  captions: readonly IterationScreenCaption[]
 }
 
 export type CursorHighlight = {
@@ -283,22 +286,28 @@ export const iteration = {
   title: 'Iteration',
   lede:
     'We moved quickly through divergent layouts, then converged on an information architecture that separated “what it is” from “what it did.”',
-  frames: [
-    {
-      imageSrc: null,
-      imageAlt: 'Placeholder wireframe or early layout for Agent-hub overview',
-      caption: 'Early IA exploration — [replace screenshot]',
-      body:
-        'First passes prioritized scanability of agent status and ownership; we later tightened hierarchy once review flows stabilized.',
-    },
-    {
-      imageSrc: null,
-      imageAlt: 'Placeholder mid-fidelity UI for agent detail and runs',
-      caption: 'Mid-fidelity — [replace screenshot]',
-      body:
-        'Detail views absorbed feedback on diffing runs, surfacing tool calls, and making policy exceptions legible.',
-    },
-  ] satisfies IterationFrame[],
+  representativeUI: {
+    heading: '4 · Screens (representative UI)',
+    intro:
+      'These are stylized mockups for the narrative—not production screenshots. They illustrate layout intent: truncation, lozenges, and scroll within modals.',
+    captions: [
+      {
+        title: 'Screen A — Catalog row',
+        body:
+          'Name and requirement suffix stay in the primary column; type and required proficiency use fixed-width lozenges so narrowing the column does not hide operational truth.',
+      },
+      {
+        title: 'Screen B — Coverage view',
+        body:
+          'A compact heatmap compares proficiency across segments (S1–S4); highlighted cells draw attention to gaps or strengths at a glance.',
+      },
+      {
+        title: 'Screen C — Segment modal',
+        body:
+          'Editing a segment lists skills with Req or Opt badges and a 1–5 scale; the dotted region scrolls when the list grows.',
+      },
+    ],
+  } satisfies RepresentativeUI,
 }
 
 export const cursorSection = {

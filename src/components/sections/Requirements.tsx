@@ -12,7 +12,7 @@ export function Requirements() {
         <h2 id={`${requirements.id}-title`} className="mb-4 font-display">
           {requirements.title}
         </h2>
-        <p className="mb-10 max-w-prose text-white/75">{requirements.lede}</p>
+        <p className="mb-10 max-w-prose text-slate-600">{requirements.lede}</p>
       </FadeIn>
       <RequirementsPersonas />
       <ProposedSolutionDiagram />
@@ -22,17 +22,17 @@ export function Requirements() {
             <FadeIn delay={i * 0.06}>
               <GlassCard className="flex gap-4 p-6 md:p-7">
                 <span
-                  className="font-display text-2xl font-bold tabular-nums text-magenta/90"
+                  className="font-display text-2xl font-bold tabular-nums text-fuchsia-700"
                   aria-hidden
                 >
                   {String(i + 2).padStart(2, '0')}
                 </span>
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-white">
+                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
                     {b.title}
                   </h3>
                   <p
-                    className="text-[0.98rem] leading-relaxed text-white/70 [&_b]:font-semibold [&_b]:text-white/85"
+                    className="text-[0.98rem] leading-relaxed text-slate-600 [&_b]:font-semibold [&_b]:text-slate-800"
                     dangerouslySetInnerHTML={{ __html: b.body }}
                   />
                 </div>

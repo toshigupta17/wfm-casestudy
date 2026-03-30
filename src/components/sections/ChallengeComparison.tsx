@@ -127,7 +127,7 @@ function MessyConnections({ animate }: MessyConnectionsProps) {
       {animate && (
         <>
           <motion.span
-            className="pointer-events-none absolute left-[48%] top-[30%] -translate-x-1/2 font-display text-xs font-bold text-rose-400/95"
+            className="pointer-events-none absolute left-[48%] top-[30%] -translate-x-1/2 font-display text-xs font-bold text-rose-600"
             initial={{ opacity: 0, rotate: -8 }}
             animate={{ opacity: 1, rotate: 0 }}
             transition={{ delay: 1.1, type: 'spring', stiffness: 200 }}
@@ -135,7 +135,7 @@ function MessyConnections({ animate }: MessyConnectionsProps) {
             ?
           </motion.span>
           <motion.span
-            className="pointer-events-none absolute left-[18%] top-[22%] font-display text-xs font-bold text-rose-400/90"
+            className="pointer-events-none absolute left-[18%] top-[22%] font-display text-xs font-bold text-rose-600"
             initial={{ opacity: 0, rotate: 10 }}
             animate={{ opacity: 1, rotate: 0 }}
             transition={{ delay: 1.25, type: 'spring', stiffness: 200 }}
@@ -143,7 +143,7 @@ function MessyConnections({ animate }: MessyConnectionsProps) {
             ?
           </motion.span>
           <motion.span
-            className="pointer-events-none absolute right-[14%] top-[22%] font-display text-sm font-bold text-rose-500"
+            className="pointer-events-none absolute right-[14%] top-[22%] font-display text-sm font-bold text-rose-600"
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.4, type: 'spring', stiffness: 260 }}
@@ -165,13 +165,13 @@ export function ChallengeComparison() {
       <div className="mb-12 mt-2">
         <h3 className="sr-only">Fragmented tools and the messy middle</h3>
         <div>
-          <GlassCard className="relative flex min-h-[420px] flex-col overflow-visible border-rose-500/15 bg-gradient-to-b from-zinc-900/80 to-zinc-950/90 p-5 md:p-6">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-rose-500/10 blur-3xl" aria-hidden />
+          <GlassCard className="relative flex min-h-[420px] flex-col overflow-visible border-rose-200/80 bg-gradient-to-b from-rose-50/95 to-white p-5 md:p-6">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-rose-300/25 blur-3xl" aria-hidden />
             <div className="relative z-20 mb-4">
-              <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-rose-300/90">
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-rose-800">
                 {C.messyTitle}
               </p>
-              <p className="mt-2 w-full text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 w-full text-sm leading-relaxed text-slate-600">
                 {C.messySubtitle}
               </p>
             </div>
@@ -194,7 +194,7 @@ export function ChallengeComparison() {
                     }
                   >
                     <div
-                      className={`relative flex w-full gap-3 rounded-xl border border-white/[0.08] bg-zinc-950/55 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset] backdrop-blur-md supports-[backdrop-filter]:bg-zinc-950/40 ${
+                      className={`relative flex w-full gap-3 rounded-xl border border-slate-200/90 bg-white p-3 shadow-sm shadow-slate-900/5 backdrop-blur-md ${
                         i === 2
                           ? 'max-w-md'
                           : 'max-w-[min(100%,20rem)] md:max-w-none'
@@ -207,14 +207,14 @@ export function ChallengeComparison() {
                         />
                       </div>
                       <div className="relative z-10 min-w-0 flex-1">
-                        <p className="font-display text-sm font-semibold text-zinc-200">
+                        <p className="font-display text-sm font-semibold text-slate-900">
                           {tool.name}
                         </p>
                         <ul className="mt-1.5 flex flex-wrap gap-1.5">
                           {tool.tags.map((tag) => (
                             <li
                               key={tag}
-                              className="rounded-md border border-white/[0.07] bg-black/35 px-2 py-0.5 text-[11px] leading-snug text-zinc-400"
+                              className="rounded-md border border-slate-200/90 bg-slate-50 px-2 py-0.5 text-[11px] leading-snug text-slate-600"
                             >
                               {tag}
                             </li>
@@ -226,22 +226,22 @@ export function ChallengeComparison() {
                 ))}
               </div>
 
-              <div className="relative z-20 mt-auto border-t border-white/[0.06] pt-5">
+              <div className="relative z-20 mt-auto border-t border-slate-200/80 pt-5">
                 <div className="flex flex-wrap justify-center gap-2">
                   {C.frictionHints.map((hint) => (
                     <span
                       key={hint}
-                      className="rounded-full border border-rose-500/35 bg-rose-950/50 px-2.5 py-1 text-[11px] font-medium text-rose-200/95 shadow-sm backdrop-blur-sm"
+                      className="rounded-full border border-rose-200 bg-rose-100 px-2.5 py-1 text-[11px] font-medium text-rose-900 shadow-sm"
                     >
                       {hint}
                     </span>
                   ))}
                 </div>
                 <div className="mt-5 flex flex-col items-center gap-3">
-                  <span className="inline-flex min-w-[11rem] items-center justify-center rounded-lg border border-rose-600/45 bg-rose-950/70 px-5 py-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-rose-100 shadow-[0_0_28px_-10px_rgba(225,29,72,0.45)]">
+                  <span className="inline-flex min-w-[11rem] items-center justify-center rounded-lg border border-rose-300 bg-rose-100 px-5 py-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-rose-950 shadow-md shadow-rose-900/10">
                     {C.dataDebt}
                   </span>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-zinc-500">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-slate-500">
                     {C.currentBar}
                   </span>
                 </div>

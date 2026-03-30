@@ -10,17 +10,17 @@ export function Outcomes() {
         <h2 id={`${outcomes.id}-title`} className="mb-4 font-display">
           {outcomes.title}
         </h2>
-        <p className="mb-10 max-w-prose text-white/75">{outcomes.lede}</p>
+        <p className="mb-10 max-w-prose text-slate-600">{outcomes.lede}</p>
       </FadeIn>
       <ul className="flex flex-col gap-5">
         {outcomes.bullets.map((b, i) => (
           <li key={b.title}>
             <FadeIn delay={i * 0.06}>
               <GlassCard className="p-6 md:p-7">
-                <h3 className="mb-2 text-base font-semibold text-white">
+                <h3 className="mb-2 text-base font-semibold text-slate-900">
                   {b.title}
                 </h3>
-                <p className="text-[0.98rem] leading-relaxed text-white/70">
+                <p className="text-[0.98rem] leading-relaxed text-slate-600">
                   {b.body}
                 </p>
               </GlassCard>

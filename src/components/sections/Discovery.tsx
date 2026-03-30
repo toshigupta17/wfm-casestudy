@@ -11,7 +11,7 @@ export function Discovery() {
         <h2 id={`${discovery.id}-title`} className="mb-4 font-display">
           {discovery.title}
         </h2>
-        <p className="mb-10 max-w-prose text-white/75">{discovery.lede}</p>
+        <p className="mb-10 max-w-prose text-slate-600">{discovery.lede}</p>
       </FadeIn>
       <div className="flex flex-col gap-5 md:[&>*]:min-w-0 md:[&>*]:flex-1">
         {discovery.cards.map((card, i) => (
@@ -27,7 +27,7 @@ export function Discovery() {
                 <h3 className="mb-3 text-base font-semibold text-accent">
                   {card.title}
                 </h3>
-                <p className="text-[0.98rem] leading-relaxed text-white/70">
+                <p className="text-[0.98rem] leading-relaxed text-slate-600">
                   {card.body}
                 </p>
               </GlassCard>
