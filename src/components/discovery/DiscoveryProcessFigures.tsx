@@ -363,13 +363,17 @@ export function DiscoveryProcessFigures({ kinds }: { kinds: readonly DiscoveryFi
       ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
       : 'grid-cols-1 md:grid-cols-2'
 
+  const isCompetitivePair =
+    kinds.length === 2 &&
+    kinds.includes('competitiveTeam') &&
+    kinds.includes('competitivePerson')
+
+  const containerClass = isCompetitivePair
+    ? 'flex flex-col gap-6 md:items-stretch md:gap-5'
+    : ['grid gap-6 md:items-stretch md:gap-5', gridCols].join(' ')
+
   return (
-    <div
-      className={[
-        'grid gap-6 md:items-stretch md:gap-5',
-        gridCols,
-      ].join(' ')}
-    >
+    <div className={containerClass}>
       {kinds.map((kind) => {
         const Cmp = FIGURE_MAP[kind]
         return (

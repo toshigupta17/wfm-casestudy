@@ -3,14 +3,8 @@ import { challengeComparison as C, requirements } from '../../content/caseStudy'
 import { FadeIn } from '../ui/FadeIn'
 import { GlassCard } from '../ui/GlassCard'
 
-function PillarGlyph({
-  variant,
-  inverse,
-}: {
-  variant: 'skills' | 'capacity' | 'insights'
-  inverse?: boolean
-}) {
-  const common = `h-6 w-6 shrink-0 ${inverse ? 'text-sky-200' : 'text-sky-700'}`
+function PillarGlyph({ variant }: { variant: 'skills' | 'capacity' | 'insights' }) {
+  const common = 'h-6 w-6 shrink-0 text-sky-700'
   if (variant === 'skills') {
     return (
       <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
@@ -83,7 +77,7 @@ export function ProposedSolutionDiagram() {
                 transition={{ delay: 0.12 + i * 0.07, duration: 0.5 }}
                 className={`rounded-xl border p-4 backdrop-blur-md ${
                   pillarVariants[i] === 'insights'
-                    ? 'border-slate-700 bg-slate-900 text-white'
+                    ? 'border-slate-200/95 bg-slate-50/95 bg-gradient-to-br from-slate-100/80 to-white text-slate-900'
                     : 'border-sky-200/80 bg-white/90 bg-gradient-to-br from-sky-100/50 to-white'
                 }`}
               >
@@ -91,31 +85,21 @@ export function ProposedSolutionDiagram() {
                   <div
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${
                       pillarVariants[i] === 'insights'
-                        ? 'border-sky-400/40 bg-sky-950/40'
+                        ? 'border-slate-200 bg-slate-200/60'
                         : 'border-sky-200 bg-sky-100/90'
                     }`}
                   >
-                    <PillarGlyph variant={pillarVariants[i]} inverse={pillarVariants[i] === 'insights'} />
+                    <PillarGlyph variant={pillarVariants[i]} />
                   </div>
                   <div>
-                    <p
-                      className={`font-display text-sm font-semibold ${
-                        pillarVariants[i] === 'insights' ? 'text-sky-100' : 'text-slate-900'
-                      }`}
-                    >
-                      {pillar.title}
-                    </p>
-                    <ul
-                      className={`mt-2 space-y-1.5 text-[13px] leading-snug ${
-                        pillarVariants[i] === 'insights' ? 'text-sky-100/85' : 'text-slate-600'
-                      }`}
-                    >
+                    <p className="font-display text-sm font-semibold text-slate-900">{pillar.title}</p>
+                    <ul className="mt-2 space-y-1.5 text-[13px] leading-snug text-slate-600">
                       {pillar.items.map((line) => (
                         <li key={line} className="flex gap-2">
                           <span
                             className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${
                               pillarVariants[i] === 'insights'
-                                ? 'bg-sky-400'
+                                ? 'bg-slate-500/70'
                                 : 'bg-sky-500/80'
                             }`}
                             aria-hidden

@@ -50,16 +50,30 @@ export type RepresentativeUI = {
   captions: readonly IterationScreenCaption[]
 }
 
+export type CursorPromptVideo = {
+  /** Filename or path under `public/` (no leading slash; joined with Vite `base` in UI) */
+  src: string
+  /** Short description for assistive tech */
+  description: string
+}
+
+export type CursorPromptExample = {
+  /** e.g. Feature, Bug, Copy */
+  label: string
+  /** Fill-in-the-blank or pattern the agent should follow */
+  framework: string
+  /** Concrete prompt written with that framework */
+  example?: string
+  /** Extra guidance (screenshots, tokens, alternate approach) */
+  tip?: string
+  /** Optional clip shown under the tip (e.g. screen recording) */
+  video?: CursorPromptVideo
+}
+
 export type CursorHighlight = {
   title: string
   body: string
-}
-
-export type HandoffItem = {
-  label: string
-  detail: string
-  /** Set to true when you replace with a real URL */
-  isPlaceholderLink?: boolean
+  promptExamples?: readonly CursorPromptExample[]
 }
 
 export type PersonaGoal = {
@@ -76,7 +90,6 @@ export const navItems: NavItem[] = [
   { id: 'discovery', label: 'Discovery' },
   { id: 'iteration', label: 'Iteration' },
   { id: 'cursor', label: 'Cursor' },
-  { id: 'handoff', label: 'Handoff' },
   { id: 'outcomes', label: 'Outcomes' },
 ]
 
@@ -258,7 +271,7 @@ export const discovery = {
   id: 'discovery' as const,
   title: 'Research and discovery',
   lede:
-    'I kept discovery proportional: understanding the process, synstem mapping, and competitive patterns from devtools and observability products.',
+    'I kept discovery proportional: understanding the process, system mapping, and competitive patterns from devtools and observability products.',
   cards: [
     {
       title: 'Understanding the process',
@@ -317,9 +330,40 @@ export const cursorSection = {
     'Cursor became the studio: rapid UI prototyping, copy iteration, and component-level refinement with the codebase as the source of truth.',
   highlights: [
     {
-      title: 'Prompts that worked',
+      title: 'Things that worked',
       body:
-        '[Replace] e.g. “Refactor this panel into a two-column layout with a sticky actions rail and accessible focus order.” Keep examples concrete—they signal how you collaborate with AI.',
+        'I created a framework for prompts, provided screenshots of screens and expected behaviour, linked Figma and real data so outputs stayed aligned with the product.',
+      promptExamples: [
+        {
+          label: 'Feature',
+          framework:
+            'Feature: Add [feature] on [page/package]. Users should [outcome]. Use Atlaskit like [similar feature]. Include [tests]. Don\'t change [explicit non-goals].',
+          example:
+            'Add the ability to edit team members actual proficiency on the teams page. Users should be able to click an edit icon against each skill level indicator and change proficiency through a modal; this change should reflect everywhere including the person\'s page. Use the same UI that we have for setting required proficiency.',
+          tip:
+            'Link screenshots and give as much context as you can. Remind the agent to use Atlaskit.',
+        },
+        {
+          label: 'Bug',
+          framework:
+            'Bug: “[Page/flow]. In dark mode, [element] is wrong: [symptom]. Should [expected]. Prefer Atlaskit tokens / existing patterns in [area if known].”',
+          example:
+            'On team members page, in dark mode, the Skill level indicator colours are rendering incorrectly. Use correct inverse colour tokens from Atlaskit to render the Skill level indicator. Make sure this change is implemented across the experience.',
+        },
+        {
+          label: 'Copy',
+          framework:
+            'Copy: "Replace string A with B everywhere it\'s user-visible in [feature]."',
+          tip:
+            'For larger content sweeps, point the agent at TypeScript (or similar) source files instead of patching strings one by one.',
+          video: {
+            // Served from `public/`; path is relative to Vite `base` (see CursorDesign publicAssetUrl)
+            src: 'typescript-copy-sweep-example.mov',
+            description:
+              'Example screen recording: using TypeScript source files for a larger copy change.',
+          },
+        },
+      ],
     },
     {
       title: 'Where I steered vs. where AI accelerated',
@@ -334,50 +378,25 @@ export const cursorSection = {
   ] satisfies CursorHighlight[],
 }
 
-export const handoff = {
-  id: 'handoff' as const,
-  title: 'Handoff',
-  lede:
-    'Handoff combined annotated Figma, behavior notes for states and errors, and a short checklist for engineering and QA.',
-  items: [
-    {
-      label: 'Figma',
-      detail: '[Replace] Link to file + named pages for flows and components.',
-      isPlaceholderLink: true,
-    },
-    {
-      label: 'Specs',
-      detail: 'Responsive breakpoints, empty/loading/error, keyboard order, and copy deck for microcopy.',
-      isPlaceholderLink: true,
-    },
-    {
-      label: 'Tokens',
-      detail: '[Replace] Mapped to your design tokens or Tailwind theme as used in implementation.',
-      isPlaceholderLink: true,
-    },
-    {
-      label: 'QA scenarios',
-      detail: 'Happy path, permission denial, tool failure, and retry—each with expected UI and telemetry hooks.',
-      isPlaceholderLink: true,
-    },
-  ] satisfies HandoffItem[],
-}
-
 export const outcomes = {
   id: 'outcomes' as const,
   title: 'Outcomes and reflection',
   lede:
-    '[Replace] What shipped, what moved (metrics or quotes), and what you would tighten next—honesty reads better than polish alone.',
+    '',
   bullets: [
     {
       title: 'What improved',
       body:
-        '[Replace] e.g. Faster onboarding to first successful run; clearer audit trail for operators; fewer misconfiguration errors in pilot.',
+        'I spent more time on the research and discovery phase and it became foundational to understand the workings of the product, rather than jumping into design phase. As a result, the design was accepted by the stakeholders and we spent a lot of time discussing edge cases and potential improvements.',
+    },
+    {
+      title: 'What I learned',
+      body: 'I was able to ship the project faster than expected and the design was accepted by the stakeholders. The feedback loop was very effective and the design was refined through multiple iterations.'
     },
     {
       title: 'What I’d do next',
       body:
-        '[Replace] e.g. Deeper templates for industry-specific agents; stronger diff UX across runs; more guided policy authoring.',
+        'Since this was my first project with Cursor, a lot of iteration happened through vibe-coding and I did not maintain a proper audit trail for the design changes. I would do that next time.',
     },
   ] satisfies BulletItem[],
 }

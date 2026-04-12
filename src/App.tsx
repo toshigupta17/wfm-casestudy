@@ -3,7 +3,6 @@ import { DesignProcess } from './components/sections/DesignProcess'
 import { CursorDesign } from './components/sections/CursorDesign'
 import { Discovery } from './components/sections/Discovery'
 import { Footer } from './components/sections/Footer'
-import { Handoff } from './components/sections/Handoff'
 import { Hero } from './components/sections/Hero'
 import { Iteration } from './components/sections/Iteration'
 import { Outcomes } from './components/sections/Outcomes'
@@ -28,8 +27,6 @@ function App() {
       <Iteration />
       <SectionDivider />
       <CursorDesign />
-      <SectionDivider />
-      <Handoff />
       <SectionDivider />
       <Outcomes />
       <SectionDivider />
