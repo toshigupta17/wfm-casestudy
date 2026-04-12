@@ -3,7 +3,7 @@ import { navItems } from '../../content/caseStudy'
 export function StickyNav() {
   return (
     <nav
-      className="sticky top-0 z-50 border-b border-slate-200/90 bg-[#f4f6fb]/85 px-4 py-3 backdrop-blur-xl md:px-8"
+      className="sticky top-0 z-50 border-b border-slate-200/90 bg-[#eff6ff]/90 px-4 py-3 backdrop-blur-xl md:px-8"
       aria-label="Case study sections"
     >
       <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-2 md:justify-between">

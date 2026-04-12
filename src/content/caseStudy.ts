@@ -300,7 +300,7 @@ export const iteration = {
   lede:
     'We moved quickly through divergent layouts, then converged on an information architecture that separated “what it is” from “what it did.”',
   representativeUI: {
-    heading: '4 · Screens (representative UI)',
+    heading: 'Screens (representative UI)',
     intro:
       'These are stylized mockups for the narrative—not production screenshots. They illustrate layout intent: truncation, lozenges, and scroll within modals.',
     captions: [

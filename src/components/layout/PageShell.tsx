@@ -9,15 +9,15 @@ export function PageShell({ children, nav }: PageShellProps) {
   return (
     <div className="relative min-h-svh overflow-x-hidden">
       <div
-        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(45,212,191,0.22),transparent_55%),radial-gradient(ellipse_80%_60%_at_100%_40%,rgba(192,38,211,0.12),transparent_50%),radial-gradient(ellipse_70%_50%_at_0%_85%,rgba(59,130,246,0.14),transparent_45%)]"
+        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(45,212,191,0.14),transparent_55%),radial-gradient(ellipse_80%_60%_at_100%_40%,rgba(192,38,211,0.08),transparent_50%),radial-gradient(ellipse_70%_50%_at_0%_85%,rgba(59,130,246,0.09),transparent_45%)]"
         aria-hidden
       />
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-[#f4f6fb]"
+        className="pointer-events-none fixed inset-0 -z-10 bg-[#eff6ff]"
         aria-hidden
       />
       <div
-        className="pointer-events-none fixed inset-0 -z-[9] opacity-[0.35] mix-blend-multiply"
+        className="pointer-events-none fixed inset-0 -z-[9] opacity-[0.22] mix-blend-multiply"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundSize: '220px 220px',
