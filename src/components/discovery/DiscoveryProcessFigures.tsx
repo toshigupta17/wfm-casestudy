@@ -8,7 +8,7 @@ import { SkillsHeatmapFigure, TeamMembersFigure } from './journeyFigures'
 
 /**
  * SVG figures for skill proficiency, hierarchy (L1–L5), and mapping logic.
- * Styled to match the case study glass / dark theme.
+ * Styled for light surfaces (readable contrast).
  */
 
 const proficiency = [
@@ -102,7 +102,7 @@ function SkillTaxonomyWithProficiencyFigure() {
                 x={b.x - 8}
                 y={b.y + pillH / 2 + 5}
                 textAnchor="end"
-                fill="rgba(255,255,255,0.5)"
+                fill="#64748b"
                 style={{ fontSize: 13, fontFamily: 'var(--font-sans, system-ui)' }}
               >
                 {b.level}
@@ -135,7 +135,7 @@ function SkillTaxonomyWithProficiencyFigure() {
           <text
             x={profCx0}
             y={labelY}
-            fill="rgba(255,255,255,0.55)"
+            fill="#475569"
             style={{ fontSize: 11, fontFamily: 'var(--font-sans, system-ui)' }}
           >
             Skill proficiency
@@ -156,7 +156,7 @@ function SkillTaxonomyWithProficiencyFigure() {
                   x={cx}
                   y={numY}
                   textAnchor="middle"
-                  fill="rgba(255,255,255,0.88)"
+                  fill="#1e293b"
                   style={{ fontSize: 11, fontFamily: 'var(--font-sans, system-ui)' }}
                 >
                   {n}
@@ -216,7 +216,7 @@ function SkillMappingFigure() {
               refY="4"
               orient="auto"
             >
-              <path d="M0,0 L8,4 L0,8 Z" fill="rgba(255,255,255,0.55)" />
+              <path d="M0,0 L8,4 L0,8 Z" fill="#64748b" />
             </marker>
             <marker
               id={dashId}
@@ -226,7 +226,7 @@ function SkillMappingFigure() {
               refY="3.5"
               orient="auto"
             >
-              <path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(255,255,255,0.38)" />
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#94a3b8" />
             </marker>
           </defs>
 
@@ -242,7 +242,7 @@ function SkillMappingFigure() {
                 y1={y1}
                 x2={cx}
                 y2={y2}
-                stroke="rgba(255,255,255,0.42)"
+                stroke="#94a3b8"
                 strokeWidth="1.5"
                 markerEnd={`url(#${solidId})`}
               />
@@ -257,7 +257,7 @@ function SkillMappingFigure() {
             height={nodeH + 16}
             rx={10}
             fill="none"
-            stroke="rgba(255,255,255,0.2)"
+            stroke="#cbd5e1"
             strokeWidth="1"
           />
           <rect
@@ -266,14 +266,14 @@ function SkillMappingFigure() {
             width={nodeW}
             height={nodeH}
             rx={8}
-            fill="rgba(255,255,255,0.06)"
-            stroke="rgba(255,255,255,0.14)"
+            fill="#f1f5f9"
+            stroke="#e2e8f0"
           />
           <text
             x={cx + nodeW / 2 + 18 + nodeW / 2}
             y={chain[1].y + 5}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.82)"
+            fill="#334155"
             style={{ fontSize: 11, fontFamily: 'var(--font-sans, system-ui)' }}
           >
             Level 1
@@ -290,7 +290,7 @@ function SkillMappingFigure() {
                 key={`dash-${node.id}`}
                 d={`M ${sx} ${sy} C ${tx} ${sy}, ${tx} ${ty - 40}, ${cx + 28} ${ty}`}
                 fill="none"
-                stroke="rgba(255,255,255,0.26)"
+                stroke="#cbd5e1"
                 strokeWidth="1.25"
                 strokeDasharray="5 5"
                 markerEnd={`url(#${dashId})`}
@@ -301,7 +301,7 @@ function SkillMappingFigure() {
           <text
             x={cx + nodeW / 2 + 62}
             y={(chain[0].y + rootY) / 2 + 4}
-            fill="rgba(255,255,255,0.4)"
+            fill="#64748b"
             style={{ fontSize: 11, fontFamily: 'var(--font-sans, system-ui)' }}
           >
             or direct
@@ -311,7 +311,7 @@ function SkillMappingFigure() {
           <path
             d={`M ${cx + 6} ${rootY + nodeH / 2} Q ${cx + 52} ${rootY - 28} ${cx + nodeW / 2 + 18 + nodeW / 2} ${chain[1].y + nodeH / 2}`}
             fill="none"
-            stroke="rgba(124, 240, 214, 0.4)"
+            stroke="rgb(13 148 136 / 0.65)"
             strokeWidth="1.35"
             markerEnd={`url(#${solidId})`}
           />
@@ -325,14 +325,14 @@ function SkillMappingFigure() {
                 width={nodeW}
                 height={nodeH}
                 rx={8}
-                fill="rgba(255,255,255,0.08)"
-                stroke="rgba(255,255,255,0.16)"
+                fill="#ffffff"
+                stroke="#cbd5e1"
               />
               <text
                 x={cx}
                 y={node.y + 5}
                 textAnchor="middle"
-                fill="rgba(255,255,255,0.9)"
+                fill="#0f172a"
                 style={{ fontSize: 11, fontFamily: 'var(--font-sans, system-ui)' }}
               >
                 {node.label}

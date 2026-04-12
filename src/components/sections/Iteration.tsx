@@ -35,7 +35,7 @@ export function Iteration() {
           <div className="grid gap-6 p-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 md:p-7">
             {ui.captions.map((screen) => (
               <div key={screen.title} className="space-y-2">
-                <p className="font-display text-sm font-semibold text-sky-200/90">
+                <p className="font-display text-sm font-semibold text-sky-800">
                   {screen.title}
                 </p>
                 <p className="text-[0.92rem] leading-relaxed text-slate-600">
